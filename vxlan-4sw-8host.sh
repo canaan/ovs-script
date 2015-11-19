@@ -36,14 +36,10 @@ add() {
     ovs-vsctl set bridge vswitch2 protocols=OpenFlow13
     ovs-vsctl set bridge vswitch3 protocols=OpenFlow13
     ovs-vsctl set bridge vswitch4 protocols=OpenFlow13
-    ovs-vsctl set-controller vswitch1 tcp:192.168.35.51 tcp:192.168.35.55 tcp:192.168.35.56 
-#tcp:192.168.35.52 tcp:192.168.35.53
-    ovs-vsctl set-controller vswitch2 tcp:192.168.35.51 tcp:192.168.35.55 tcp:192.168.35.56
-# tcp:192.168.35.52 tcp:192.168.35.53
-    ovs-vsctl set-controller vswitch3 tcp:192.168.35.51 tcp:192.168.35.55 tcp:192.168.35.56 
-#tcp:192.168.35.52 tcp:192.168.35.53
-    ovs-vsctl set-controller vswitch4 tcp:192.168.35.51 tcp:192.168.35.55 tcp:192.168.35.56 
-# tcp:192.168.35.52 tcp:192.168.35.53
+    ovs-vsctl set-controller vswitch1 tcp:192.168.35.51 tcp:192.168.35.55 tcp:192.168.35.56 tcp:192.168.35.52 tcp:192.168.35.53
+    ovs-vsctl set-controller vswitch2 tcp:192.168.35.51 tcp:192.168.35.55 tcp:192.168.35.56 tcp:192.168.35.52 tcp:192.168.35.53
+    ovs-vsctl set-controller vswitch3 tcp:192.168.35.51 tcp:192.168.35.55 tcp:192.168.35.56 tcp:192.168.35.52 tcp:192.168.35.53
+    ovs-vsctl set-controller vswitch4 tcp:192.168.35.51 tcp:192.168.35.55 tcp:192.168.35.56 tcp:192.168.35.52 tcp:192.168.35.53
 
     
     sudo ip link add name vlink1-0 type veth peer name vlink1-1
@@ -141,9 +137,9 @@ add() {
     sudo ip link set vlink5-4 up
     sudo ip link set vlink5-5 up
 
-#    ovs-vsctl add-port vswitch1 vxlan1 tag=10 -- set interface vxlan1 type=vxlan options:key=10 options:remote_ip=192.168.56.202
-#    ovs-vsctl add-port vswitch1 vxlan2 tag=20 -- set interface vxlan2 type=vxlan options:key=20 options:remote_ip=192.168.56.203
-#    ovs-vsctl add-port vswitch1 vxlan3 tag=30 -- set interface vxlan3 type=vxlan options:key=30 options:remote_ip=192.168.56.204
+    ovs-vsctl add-port vswitch1 vxlan1 tag=10 -- set interface vxlan1 type=vxlan options:key=10 options:remote_ip=192.168.56.202
+    ovs-vsctl add-port vswitch1 vxlan2 tag=20 -- set interface vxlan2 type=vxlan options:key=20 options:remote_ip=192.168.56.203
+    ovs-vsctl add-port vswitch1 vxlan3 tag=30 -- set interface vxlan3 type=vxlan options:key=30 options:remote_ip=192.168.56.204
 
 }
 
